@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'pages.apps.PagesConfig',
+    'cars.apps.CarsConfig',
+    'ckeditor',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
