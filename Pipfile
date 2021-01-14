@@ -12,6 +12,8 @@ pillow = "*"
 django-ckeditor = "*"
 django-multiselectfield = "*"
 django-humanize = "*"
+flaskwebgui = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"
