@@ -27,7 +27,7 @@ SECRET_KEY = 'zyg!!lb19or)hh)xetr7t08n1ms%f$w&p$-pdj^b_2&h&jv&ge'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['boiling-depths-52002.herokuapp.com',]
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
