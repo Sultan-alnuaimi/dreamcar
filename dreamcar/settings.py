@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'dreamcar/static')
 SECRET_KEY = 'zyg!!lb19or)hh)xetr7t08n1ms%f$w&p$-pdj^b_2&h&jv&ge'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -62,6 +63,7 @@ MIDDLEWARE = [
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'dreamcar.urls'
@@ -88,16 +90,16 @@ WSGI_APPLICATION = 'dreamcar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'dreamer_db',
-		'USER': 'postgres',
-		'PASSWORD': 'secret',
-		'HOST': 'localhost',
-	}
-}
-
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.postgresql',
+# 		'NAME': 'dreamer_db',
+# 		'USER': 'postgres',
+# 		'PASSWORD': 'secret',
+# 		'HOST': 'localhost',
+# 	}
+# }
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:secret@localhost/dreamer_db')}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -164,5 +166,12 @@ EMAIL_USE_TLS = True
 # EMAIL_SSL_KEYFILE =
 # EMAIL_SSL_CERTFILE = 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+# whitenoise settings
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
 
 
